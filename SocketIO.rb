@@ -6,7 +6,7 @@ require 'parser'
 module SocketIO
 
   def self.connect(host, options = {}, &block)
-    response = RestClient.get "http://#{host}/socket.io/1/"
+    response = RestClient.get "https://#{host}/socket.io/1/"
     # resonse should be in the form of sessionid:heartbeattimeout:closetimeout:supported stuff
     response_array = response.split(':')
     response_array = [host] + response_array << options
@@ -51,7 +51,7 @@ module SocketIO
 
     def connect_transport
       if @supported_transports.include? "websocket"
-        @transport = WebSocket.new("ws://#{@host}/socket.io/1/websocket/#{@session_id}")
+        @transport = WebSocket.new("wss://#{@host}/socket.io/1/websocket/#{@session_id}")
       else
         raise "We only support WebSockets.. and this server doesnt like web sockets.. O NO!!"
       end
@@ -117,7 +117,7 @@ module SocketIO
     end
 
     def send_event(name, hash)
-      @transport.send("5:::#{{name: name, args: [hash]}.to_json}") # rescue false
+      @transport.send("5:::#{{'name' => name, 'args' => [hash]}.to_json}") # rescue false
     end
     alias :emit :send_event
 
