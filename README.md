@@ -5,8 +5,8 @@ Un client tout simple pour accéder à une web socket en socket.io
 ## Origine
 
 Cette implémentation est un fork de https://github.com/lyondhill/socket.io-ruby-client
-  - modifié pour être compatible ruby 1.8
-  - modifié pour ne prendre en compte que de la web socket sur SSL
+* modifié pour être compatible ruby 1.8
+* modifié pour ne prendre en compte que de la web socket sur SSL
 
 ## Exemple
 
