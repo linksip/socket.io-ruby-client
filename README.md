@@ -1,6 +1,16 @@
-# Simple Socket IO client
+# Simple client ruby socket.io
 
-Quick and kinda dirty socket.io client using web sockets
+Un client tout simple pour accéder à une web socket en socket.io
+
+## Origine
+
+Cette implémentation est un fork de https://github.com/lyondhill/socket.io-ruby-client
+  - modifié pour être compatible ruby 1.8
+  - modifié pour ne prendre en compte que de la web socket sur SSL
+
+## Exemple
+
+L'exemple d'utilisation est le script agil_client.rb
 
 ## Features
 
@@ -51,8 +61,3 @@ loop do
   puts 'zzz'
 end
 ```
-
-## Examples
-
-examples can be found in the examples/ folder. 
-A corrosponding server can be found in the examples/servers
